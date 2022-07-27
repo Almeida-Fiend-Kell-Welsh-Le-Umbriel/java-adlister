@@ -9,6 +9,14 @@ import java.util.List;
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
 
+    public static void main(String[] args) {
+        MySQLAdsDao my = new MySQLAdsDao(new Config());
+        List<String> ss = my.all2();
+        for(String s: ss){
+            System.out.println(s);
+        }
+    }
+
 //    public static void main(String[] args) {
 //        MySQLAdsDao ads = new MySQLAdsDao(new Config());
 //        Ad a = ads.findByAdID(3);
@@ -38,6 +46,22 @@ public class MySQLAdsDao implements Ads {
             stmt = connection.prepareStatement("SELECT * FROM ads");
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
+
+    public List<String> all2() {
+        PreparedStatement stmt = null;
+        List<String> testresults = new ArrayList<>();
+        try {
+            stmt = connection.prepareStatement("SELECT description, title FROM ads");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                testresults.add(   rs.getString(1) +  rs.getString(2)    );
+            }
+
+            return testresults;
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
         }

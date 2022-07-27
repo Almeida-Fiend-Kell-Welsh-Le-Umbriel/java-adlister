@@ -30,7 +30,7 @@
                         <li><a class="dropdown-item" href="#">Sort by Category</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="/ads/create">Create AD</a></li>
-                        <li><a class="dropdown-item" href="#">Update Ad</a></li>
+                        <li><a class="dropdown-item" href="/update-ads">Update Ad</a></li>
                         <li><a class="dropdown-item" href="/delete">Delete AD</a></li>
 
                     </ul>
