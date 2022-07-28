@@ -1,7 +1,7 @@
 USE adlister_db;
 
-DROP TABLE IF EXISTS ads;
-DROP TABLE IF EXISTS users;
+# DROP TABLE IF EXISTS ads;
+# DROP TABLE IF EXISTS users;
 
 CREATE TABLE if not exists users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -34,6 +34,13 @@ CREATE TABLE if not exists category_and_ad (
     FOREIGN KEY (ad_id) REFERENCES ads(id),
     FOREIGN KEY (category_id) REFERENCES categories(id),
     UNIQUE (category_id, ad_id)
+);
 
-
+CREATE TABLE if not exists profiles (
+    user_id INT UNSIGNED UNIQUE NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    last_name VARCHAR(250),
+    first_name VARCHAR(250),
+    address VARCHAR(250),
+    phone VARCHAR(250)
 );

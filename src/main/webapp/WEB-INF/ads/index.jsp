@@ -10,9 +10,9 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center ">
         <c:forEach var="ad" items="${ads}">
-            <div class="col-md-6 card mx-2 my-2 border border-dark rounded border-3" style="width: 18rem;">
+            <div class="col-3 card mx-1 my-1 border border-dark rounded border-3" style="">
                 <div class="card-body">
                     <h5 class="card-title">Title: <c:out value="${ad.title}"/></h5>
                     <h6 class="card-subtitle mb-2 text-muted">Post ID: <c:out value="${ad.id}"/></h6>
@@ -25,7 +25,7 @@
                         </c:forEach>
                     </p>
                     <form action="/ad" method="POST">
-                        <button class="btn btn-info" name="id" value="${ad.id}">view details</button>
+                        <button class="btn btn-outline-secondary" name="id" value="${ad.id}">view details</button>
                     </form>
 
 <%--                    individual ad link would redirect to single ad servlet --%>
